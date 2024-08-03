@@ -1,14 +1,13 @@
-<?php 
-	session_start();
-	if(isset($_SESSION['name']))
-	{
-		include "layouts/header2.php"; 
-		include "config.php"; 
-		
-		$sql="SELECT * FROM `chat`";
+<?php
+session_start();
+if(isset($_SESSION['name'])) {
+    include "layouts/header2.php";
+    include "config.php";
 
-		$query = mysqli_query($conn,$sql);
-?>
+    $sql = "SELECT * FROM `chat`";
+
+    $query = mysqli_query($conn, $sql);
+    ?>
 <style>
   h2{
 color:white;
@@ -58,9 +57,7 @@ color:white;
 </body>
 </html>
 <?php
-	}
-	else
-	{
-		header('location:index.php');
-	}
+} else {
+    header('location:index.php');
+}
 ?>

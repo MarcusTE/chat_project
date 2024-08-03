@@ -1,14 +1,13 @@
-<?php 
-	session_start();
-	if(isset($_SESSION['name']))
-	{
-		include "layouts/header2.php"; 
-		include "config.php"; 
-		
-		$sql="SELECT * FROM `chat`";
+<?php
+session_start();
+if(isset($_SESSION['name'])) {
+    include "layouts/header2.php";
+    include "config.php";
 
-		$query = mysqli_query($conn,$sql);
-?>
+    $sql = "SELECT * FROM `chat`";
+
+    $query = mysqli_query($conn, $sql);
+    ?>
 <style>
   h2{
 color:white;
@@ -76,11 +75,9 @@ color:white;
   </center></br>
    <div class="display-chat" id = "display-chat">
 <?php
-	if(mysqli_num_rows($query)>0)
-	{
-		while($row= mysqli_fetch_assoc($query))	
-		{
-?>
+        if(mysqli_num_rows($query) > 0) {
+            while($row = mysqli_fetch_assoc($query)) {
+                ?>
 		<div class="message">
 			<p>
 				<span><?php echo $row['name']; ?> :</span>
@@ -88,19 +85,17 @@ color:white;
 			</p>
 		</div>
 <?php
-		}
-	}
-	else
-	{
-?>
+            }
+        } else {
+            ?>
 <div class="message">
 			<p>
 				No hay ninguna conversación previa.
 			</p>
 </div>
 <?php
-	} 
-?>
+        }
+    ?>
 
   </div>
 
@@ -124,9 +119,7 @@ color:white;
 </body>
 </html>
 <?php
-	}
-	else
-	{
-		header('location:index.php');
-	}
+} else {
+    header('location:index.php');
+}
 ?>
